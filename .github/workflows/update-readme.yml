@@ -1,0 +1,65 @@
+name: Update README
+
+on:
+  schedule:
+    - cron: "0 0 * * 0" # Weekly on Sunday midnight
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch GitHub Data
+        env:
+          DSH_STATS_PAT: ${{ secrets.DSH_STATS_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "$DSH_STATS_PAT" ]; then
+            echo "Using DSH_STATS_PAT to fetch all repos (including private)..."
+            curl -s -H "Authorization: token $DSH_STATS_PAT" \
+              "https://api.github.com/orgs/DigitalServerHost/repos?per_page=100" \
+              -o repos.json
+          else
+            echo "Using GITHUB_TOKEN to fetch public repos..."
+            curl -s -H "Authorization: token $GITHUB_TOKEN" \
+              "https://api.github.com/orgs/DigitalServerHost/repos?per_page=100" \
+              -o repos.json
+          fi
+
+      - name: Update README with repo stats
+        env:
+          DSH_STATS_PAT: ${{ secrets.DSH_STATS_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/generate_readme.py
+
+      - name: Commit and push changes
+        env:
+          DSH_STATS_PAT: ${{ secrets.DSH_STATS_PAT }}
+        run: |
+          if [ -n "$DSH_STATS_PAT" ]; then
+            git config user.name "mcp-west"
+            git config user.email "west@digitalserverhost.com"
+            git remote set-url origin https://x-access-token:${DSH_STATS_PAT}@github.com/${{ github.repository }}.git
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+          fi
+
+          git add profile/README.md
+          git diff --quiet && git diff --staged --quiet || (
+            git commit -m "chore: update profile README with latest stats"
+            git push
+          )
