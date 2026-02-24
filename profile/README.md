@@ -60,12 +60,12 @@ DigitalServerHost serves as the primary hub for **production release binaries** 
 <div align="center">
 <!-- START_STATS -->
 
-| 🏆 GitHub Stats         |               |
-| :---------------------- | :------------ |
-| **Total Public Repos**  | 1             |
-| **Total Private Repos** | 1             |
-| **Total Stars Earned**  | 0 🌟          |
-| **Top Languages Used**  | Python (100%) |
+| 🏆 GitHub Stats | |
+| :--- | :--- |
+| **Total Public Repos** | 1 |
+| **Total Private Repos** | 1 |
+| **Total Stars Earned** | 0 🌟 |
+| **Top Languages Used** | Python (100%) |
 
 ### ⚡ Recent Activity
 
