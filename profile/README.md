@@ -28,7 +28,7 @@ DigitalServerHost serves as the primary hub for **production release binaries** 
 
 - **[GitHub Auditor MCP](https://github.com/DigitalServerHost/repo-mcp):** Professional-grade Model Context Protocol server for automated git auditing and security compliance.
 - **[Second Life Gaming D&D Agent](https://discord.com/discovery/applications/1459398948455452903/store):** Autonomous Discord server manager and AI Dungeon Master. ([Join the Alpha Server](https://discord.gg/UDs4cDJpPM))
-- **[AI Dev Starter Guide](https://github.com/DigitalServerHost/ai-dev-starter-guide):** A beginner-friendly workstation bootstrap designed for agents, developers, and AI enthusiasts. Perfect for those with little to no setup knowledge, it provides a seamless path to an enterprise-grade AI development environment.
+- **[AI Dev Starter Guide](https://github.com/westkevin12/ai-dev-starter-guide):** A beginner-friendly workstation bootstrap designed for agents, developers, and AI enthusiasts. Perfect for those with little to no setup knowledge, it provides a seamless path to an enterprise-grade AI development environment.
 
 ---
 
