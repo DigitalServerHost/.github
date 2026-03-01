@@ -62,12 +62,14 @@ DigitalServerHost serves as the primary hub for **production release binaries** 
 
 | 🏆 GitHub Stats | |
 | :--- | :--- |
-| **Total Public Repos** | 1 |
-| **Total Private Repos** | 1 |
-| **Total Stars Earned** | 0 🌟 |
-| **Top Languages Used** | Python (100%) |
+| **Total Public Repos** | 3 |
+| **Total Private Repos** | 7 |
+| **Total Stars Earned** | 1 🌟 |
+| **Top Languages Used** | Python (63%), JavaScript (14%), TypeScript (10%), HCL (4%), Shell (4%) |
 
 ### ⚡ Recent Activity
+- [adk-dev-team](https://github.com/DigitalServerHost/adk-dev-team) - Feb 25, 2026
+- [music-manager-agent](https://github.com/DigitalServerHost/music-manager-agent) - Feb 24, 2026
 
 <!-- END_STATS -->
 </div>
